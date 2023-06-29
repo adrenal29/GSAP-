@@ -20,43 +20,78 @@ avatar.addEventListener('mousemove',(event)=>{
     })
 })
 
+
+const image = document.querySelector('.image');
+
+
+image.style.opacity = 0;
+
+// create a timeline for the animation
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: image,
+    start: "top center",
+  }
+});
+
+
+tl.to(image, {opacity: 1, duration: 4});
 window.addEventListener("mousemove", function(chahcha){
     document.querySelector("#slidephoto").style.top=`${chahcha.clientY}px`
     document.querySelector("#slidephoto").style.left=`${chahcha.clientX}px`
     document.querySelector("#slidephoto").style.transform =`translate(${-chahcha.clientX*0.20}px, ${-chahcha.clientY*0.45}px)`
 });
 
-document.querySelector("#chainn")
+// select the image element
+const img = document.querySelector('.skill');
+
+// hide the image initially
+img.style.opacity = 0;
+
+// create a timeline for the animation
+const t = gsap.timeline();
+
+// add animation to the timeline
+t.to(img, {opacity: 1, x: 0, duration: 2});
+
+// initialize ScrollTrigger
+ScrollTrigger.create({
+  animation: t,
+  trigger: img,
+  start: "top center",
+});
+
+document.querySelector("#first")
 .addEventListener("mousemove", function(){
     document.querySelector("#slidephotos").style.marginTop = "0%"
-    document.querySelector("#chainn").style.color = "rgb(177, 177, 177)"
+    document.querySelector("#first").style.color = "white"
 })
 
-document.querySelector("#chainn")
+document.querySelector("#first")
 .addEventListener("mouseleave", function(){
-    document.querySelector("#chainn").style.color = "initial"
+    document.querySelector("#first").style.color = "initial"
 })
 
-document.querySelector("#aty")
+document.querySelector("#sec")
 .addEventListener("mousemove", function(){
     document.querySelector("#slidephotos").style.marginTop = "-120%"
-    document.querySelector("#aty").style.color = "rgb(177, 177, 177)"
+    document.querySelector("#sec").style.color = "white";
 })
 
-document.querySelector("#aty")
+document.querySelector("#sec")
 .addEventListener("mouseleave", function(){
-    document.querySelector("#aty").style.color = "initial"
+    document.querySelector("#sec").style.color = "initial"
 })
 
-document.querySelector("#mic")
+document.querySelector("#third")
 .addEventListener("mousemove", function(){
     document.querySelector("#slidephotos").style.marginTop = "-240%"
-    document.querySelector("#mic").style.color = "rgb(177, 177, 177)"
+    document.querySelector("#third").style.color = "rgb(177, 177, 177)"
 })
 
-document.querySelector("#mic")
+document.querySelector("#third")
 .addEventListener("mouseleave", function(){
-    document.querySelector("#mic").style.color = "initial"
+    document.querySelector("#third").style.color = "initial"
 })
 
 document.querySelector("#tapso")
@@ -96,3 +131,4 @@ document.querySelector("#btnsm")
     document.querySelector("#btnsm h1").style.color = "rgb(95, 95, 95)"
 
 })
+
